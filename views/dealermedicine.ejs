@@ -18,7 +18,55 @@
 </head>
 
 <body>
-    
+    <!-- <header class="head">
+        <img class="logo" src="https://i.pinimg.com/originals/3f/3d/d9/3f3dd9219f7bb1c9617cf4f154b70383.jpg" alt="">
+        <h1 class="name">We For You</h1>
+        <ul style="display: inline-block; position: relative; left: 0vw;">
+            <li style="display: inline;"><a href="/" class="nav">
+                    <p>Home</p>
+                </a></li>
+            <li style="display: inline;"><a class="nav" id="abtUs" href="/donate">
+                    <p>Donate</p>
+                </a></li>
+            <li style="display: inline;">
+                <% if(FullName){ %>
+                    <a href="/searchMed" class="nav_login">
+                        <% } else { %>
+                            <a href="/login" class="nav_login">
+                                <% } %>
+                                    <p>Helping Hand</p>
+                            </a>
+            </li>
+            <li style="display: inline;">
+                <% if(FullName){ %>
+                    <a href="" class="review">
+                        <p>
+                            <%= FullName %>
+                        </p>
+                        <% } else { %>
+                            <a href=" /login" class="review">
+                                <p>
+                                    Login
+                                </p>
+                                <% } %>
+                            </a>
+            </li>
+            <li style=" display: inline;">
+                <% if(FullName){ %>
+                    <a href="/logout" class="rate_us" style="display:inline-block;">
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                    <% } else { %>
+                        <a href="" class="rate_us" style="display:none;">
+                        </a>
+                        <% } %>
+
+            </li>
+        </ul>
+    </header> -->
+
     <div class="add_med_btn">
         <a href="/searchMed" id="insertlink" style="text-decoration: none; color: #102125;">Back to Search</a>
         </div>
