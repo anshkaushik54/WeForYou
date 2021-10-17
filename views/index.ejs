@@ -212,15 +212,23 @@
       </div>
       <div class="imp_links">
         <h2 class="contact_icon_heading">Explore</h2>
-        <a href="#" class="main_links">
+        <a href="/donate" class="main_links">
           <p class="footer_button">Donate</p>
         </a>
-        <a href="#" class="main_links">
-          <p class="footer_button">Helping hand</p>
-        </a>
-        <a href="#" class="main_links">
-          <p class="footer_button">Volunteer</p>
-        </a>
+        <% if(FullName){ %>
+          <a href="/searchMed" class="main_links">
+            <p class="footer_button">Helping hand</p>
+          </a>
+          <% } else { %>
+            <a href="/login" class="main_links">
+              <p class="footer_button">Helping hand</p>
+            </a>
+            <% } %>
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSesEruVcCv0jS1wBYs7Kcda0aqPaxq87xWt91NJ3Ycl9DN1UQ/viewform?usp=sf_link"
+                class="main_links">
+                <p class="footer_button">Volunteer</p>
+              </a>
       </div>
       <div class="ourdev">
         <h2>OUR DEVELOPERS</h2>
