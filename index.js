@@ -23,7 +23,6 @@ mongoose.connect('mongodb://localhost:27017/userDB', { useNewUrlParser: true, us
 
 app.get('/', (req, res) => {
   if (req.session.detail) {
-    // console.log(`Hello, ${req.session.name}`);
     res.render('index.ejs', { FullName: req.session.detail.FullName });
   }
   else {
@@ -32,7 +31,6 @@ app.get('/', (req, res) => {
 })
 
 app.get('/donate', (req, res) => {
-  // res.render('donatepage.ejs');
   if (req.session.detail) {
     console.log(`Hello, ${req.session.name}`);
     res.render('donatepage.ejs', { FullName: req.session.detail.FullName });
@@ -44,7 +42,6 @@ app.get('/donate', (req, res) => {
 
 app.get('/login', (req, res) => {
   if (req.session.detail) {
-    // console.log(`Hello, ${req.session.name}`);
     res.render('loginpage.ejs', { FullName: req.session.detail.FullName });
   }
   else {
@@ -56,7 +53,6 @@ app.get('/login', (req, res) => {
 
 app.get('/customerRegister', (req, res) => {
   if (req.session.detail) {
-    // console.log(`Hello, ${req.session.name}`);
     res.render('register_customer.ejs', { FullName: req.session.detail.FullName });
   }
   else {
@@ -78,8 +74,6 @@ app.post('/login', async (req, res) => {
     if (customer.length) {
       req.session.detail = customer[0];
       req.session.type = 'customer';
-      // console.log(`${customer[0].FullName}`);
-      // console.log(`Hello, ${req.session.name}`);
       res.send(JSON.stringify(tr));
     }
     else {
@@ -106,27 +100,16 @@ app.post('/login', async (req, res) => {
 
 app.post('/customerRegister', async (req, res) => {
   const { name, email, username, password, confirmpassword } = req.body;
-  // console.log(name);
-  // console.log(email);
-  // console.log(username);
-  // console.log(password);
-  // console.log(confirmpassword);
   const customer = await Customer.insertMany({
     FullName: name,
     username: username,
     password: password
   })
-
-
   res.redirect('/login');
 })
 
 app.post('/dealerRegister', async (req, res) => {
   const { name, username, password, confirmpassword, phone, address, city, regNumber } = req.body;
-  // console.log(name);
-  // console.log(email);
-  // console.log(username);
-  // console.log(password);
   console.log(phone);
   console.log(req.body);
   const dealer = await Dealer.insertMany({
@@ -138,8 +121,6 @@ app.post('/dealerRegister', async (req, res) => {
     city: city,
     regNumber: regNumber
   })
-
-
   res.redirect('/login');
 })
 
