@@ -199,7 +199,7 @@ app.post('/delete', async (req, res) => {
   res.redirect('/insert');
 })
 
-app.listen(process.env.port, () => {
+app.listen(process.env.PORT, () => {
   console.log('Server started');
 })
 
