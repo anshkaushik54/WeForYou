@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const Dealer = require('./models/dealer');
 const Customer = require('./models/customer.js');
 const session = require('express-session');
-const inSession = { secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true };
+const inSession = { secret: 'ThereIsNoSecret', resave: true, saveUninitialized: true };
 app.use(session(inSession));
 mongoose.connect('mongodb://localhost:27017/userDB', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
