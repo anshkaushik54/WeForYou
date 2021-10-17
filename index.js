@@ -105,8 +105,6 @@ app.post('/customerRegister', async (req, res) => {
     username: username,
     password: password
   })
-
-
   res.redirect('/login');
 })
 
@@ -123,8 +121,6 @@ app.post('/dealerRegister', async (req, res) => {
     city: city,
     regNumber: regNumber
   })
-
-
   res.redirect('/login');
 })
 
@@ -203,7 +199,7 @@ app.post('/delete', async (req, res) => {
   res.redirect('/insert');
 })
 
-app.listen('80', () => {
+app.listen(process.env.PORT, () => {
   console.log('Server started');
 })
 
