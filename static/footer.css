@@ -60,6 +60,17 @@ footer{
     margin-bottom: 0.3vw;
     margin-left: 0.5vw;
 }
+.ourdev ul li:hover{
+    color: black;
+    /* text-decoration: underline; */
+
+}
+.ourdev ul li a p:hover{
+    color: cyan;
+    /* text-decoration: underline; */
+
+}
+
 .contacts{
     display: flex;
     flex-direction: column;
