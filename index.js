@@ -1,18 +1,21 @@
-const express = require('express');
+const express  = require('express');
 const path = require('path');
-const app = express();
+const app= express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.urlencoded({ encoded: true }));
+// app.use(express.urlencoded({ encoded: true }));
+app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "static")));
 const mongoose = require('mongoose');
 const Dealer = require('./models/dealer');
 const Customer = require('./models/customer.js');
 const session = require('express-session');
-const inSession = { secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true };
+const inSession = { secret: process.env.SESSION_SECRET || "ThereIsNoSecret" , resave: true, saveUninitialized: true };
+require('dotenv').config();
+
 app.use(session(inSession));
-mongoose.connect('mongodb://localhost:27017/userDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(`mongodb://${process.env.MONGO_USER}/`+process.env.DB_NAME, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('started database');
   })
@@ -199,7 +202,11 @@ app.post('/delete', async (req, res) => {
   res.redirect('/insert');
 })
 
-app.listen(process.env.PORT, () => {
-  console.log('Server started');
+
+const port=process.env.PORT ||3000;
+
+app.listen( process.env.PORT ||3000 , () => {
+  console.log('Server started at PORT '+`${port}`);
+
 })
 
