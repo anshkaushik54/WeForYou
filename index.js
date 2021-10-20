@@ -108,8 +108,6 @@ app.post('/customerRegister', async (req, res) => {
     username: username,
     password: password
   })
-
-
   res.redirect('/login');
 })
 
@@ -126,8 +124,6 @@ app.post('/dealerRegister', async (req, res) => {
     city: city,
     regNumber: regNumber
   })
-
-
   res.redirect('/login');
 })
 
@@ -206,9 +202,14 @@ app.post('/delete', async (req, res) => {
   res.redirect('/insert');
 })
 
+<<<<<<< HEAD
 const port=process.env.PORT ||3000;
 
 app.listen( process.env.PORT ||3000 , () => {
   console.log('Server started at PORT '+`${port}`);
+=======
+app.listen(process.env.PORT, () => {
+  console.log('Server started');
+>>>>>>> b378be186a582253e295012dc3032d162cbfc82f
 })
 
